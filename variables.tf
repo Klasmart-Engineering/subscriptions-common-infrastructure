@@ -1,15 +1,15 @@
 variable "kubernetes_server_urls" {
-    type = list(object({
-      environment = string
-      url = string
-    }))
+  type = list(object({
+    environment = string
+    url         = string
+  }))
 
-    description = "All the target Kubernetes cluster urls"
+  description = "All the target Kubernetes cluster urls"
 
-    default = [{
-      environment = "apifactory-uk"
-      url = "https://EFC4B481A0B23459D26FE96D8985F7E3.gr7.eu-west-2.eks.amazonaws.com"
-    }]
+  default = [{
+    environment = "apifactory-uk"
+    url         = "https://EFC4B481A0B23459D26FE96D8985F7E3.gr7.eu-west-2.eks.amazonaws.com"
+  }]
 }
 
 variable "helm_source_repositories" {

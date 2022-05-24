@@ -5,7 +5,7 @@ resource "tfe_workspace" "workspace" {
   execution_mode = "remote"
 
   description       = var.workspace_description
-  tag_names         = concat(["lay:offering"], local.tfe_tags)
+  tag_names         = concat(["lay:product"], local.tfe_tags)
   terraform_version = var.terraform_version
 
   # Deploy settings

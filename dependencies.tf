@@ -1,10 +1,4 @@
-# data "tfe_outputs" "meta" {
-#   organization = local.terraform_organization
-#   workspace    = "meta-${local.working_directory}"
-# }
-
-
-# Dependecy for the tools-prod workspace, that has the ArgoCD cluster, to put in the provider.data
+# Dependency for the tools-prod workspace, that has the ArgoCD cluster, to put in the provider.data
 # Infra tools cluster - for API connection to ArgoCD - using PROD
 data "tfe_outputs" "cluster-infra-tools" {
   organization = local.terraform_organization

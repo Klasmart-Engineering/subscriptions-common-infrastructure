@@ -22,6 +22,6 @@ module "workspaces" {
   notify_triggers = ["run:needs_attention", "run:applying", "run:completed", "run:errored"]
 
   providers = {
-    tfe        = tfe
+    tfe = tfe
   }
 }
