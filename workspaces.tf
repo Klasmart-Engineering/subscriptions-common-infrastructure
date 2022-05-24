@@ -11,7 +11,7 @@ module "workspaces" {
   env_repo                = "KL-Engineering/subscriptions-gitops-env"
   domain                  = "apifactory.kidsloop.live"
   env_repo_default_branch = "main"
-  working_directory       = "apifactory/uk"
+  working_directory       = "apifactory/uk/terraform"
 
   # RBAC settings
   tfe_team_access_permissions = {
