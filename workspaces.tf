@@ -12,6 +12,7 @@ module "workspaces" {
   domain                  = "apifactory.kidsloop.live"
   env_repo_default_branch = "main"
   working_directory       = "apifactory/uk/terraform"
+  workspace_description   = "Subscriptions workspace"
 
   # RBAC settings
   tfe_team_access_permissions = {
