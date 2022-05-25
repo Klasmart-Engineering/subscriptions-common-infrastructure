@@ -21,7 +21,7 @@ module "workspaces" {
   }
   # Notification settings
   notify_triggers = ["run:needs_attention", "run:applying", "run:completed", "run:errored"]
-  tfe_tags = [
+  tags = [
     "lay:product",
     "reg:${lower(var.region)}",
     "env:${lower(var.project_environment)}",
