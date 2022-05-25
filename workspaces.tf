@@ -1,5 +1,5 @@
 module "workspaces" {
-  source = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git?ref=v0.1.0"
+  source = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git?ref=v0.3.0"
 
   # Module inputs here
   region              = local.region
@@ -8,9 +8,9 @@ module "workspaces" {
   service_owner       = local.service_owner
 
   workspace_name          = local.workspace_name
-  env_repo                = local.env_repo
+  vcs_repo                = local.env_repo
   domain                  = local.domain
-  env_repo_default_branch = local.env_repo_default_branch
+  vcs_repo_default_branch = local.env_repo_default_branch
   working_directory       = local.working_directory
   workspace_description   = local.workspace_description
 
