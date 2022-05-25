@@ -1,5 +1,5 @@
 module "workspaces" {
-  source = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git"
+  source = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git?ref=v0.1.0"
 
   # Module inputs here
   region              = local.region
