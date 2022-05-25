@@ -12,4 +12,16 @@ locals {
   istio_namespace     = "istio-system"
 
   product_namespace = "subscriptions"
+
+  region              = "eu-west-2"
+  project_environment = "apifactory"
+  project_region      = "uk"
+  service_owner       = "Infra"
+
+  workspace_name          = "subscriptions-apifactory-uk"
+  env_repo                = "KL-Engineering/subscriptions-gitops-env"
+  domain                  = "apifactory.kidsloop.live"
+  env_repo_default_branch = "main"
+  working_directory       = "apifactory/uk/terraform"
+  workspace_description   = "Subscriptions workspace"
 }
