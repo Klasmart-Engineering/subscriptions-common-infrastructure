@@ -1,5 +1,5 @@
 module "workspaces" {
-  source = "./tfe-workspace-module"
+  source = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git"
 
   # Module inputs here
   region              = "eu-west-2"
@@ -21,6 +21,14 @@ module "workspaces" {
   }
   # Notification settings
   notify_triggers = ["run:needs_attention", "run:applying", "run:completed", "run:errored"]
+  tfe_tags = [
+    "lay:product",
+    "reg:${lower(var.region)}",
+    "env:${lower(var.project_environment)}",
+    "loc:${lower(var.project_region)}",
+    "own:${lower(var.service_owner)}",
+    "dom:${replace(var.domain, ".", "-")}",
+  ]
 
   providers = {
     tfe = tfe

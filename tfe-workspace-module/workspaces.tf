@@ -1,16 +1,15 @@
 resource "tfe_workspace" "workspace" {
   name = var.workspace_name
-
   organization   = var.tfe_organization_name
   execution_mode = "remote"
-
   description       = var.workspace_description
-  tag_names         = concat(["lay:product"], local.tfe_tags)
+  tag_names         = concat(var.tags)
   terraform_version = var.terraform_version
 
+  allow_destroy_plan = var.allow_destroy_plan
   # Deploy settings
   ssh_key_id        = data.tfe_ssh_key.deploy.id
-  working_directory = local.working_directory
+  working_directory = var.working_directory
   vcs_repo {
     identifier         = var.env_repo
     branch             = var.env_repo_default_branch

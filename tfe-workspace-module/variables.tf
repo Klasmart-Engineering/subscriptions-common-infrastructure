@@ -121,3 +121,9 @@ variable "working_directory" {
   type        = string
   default     = ""
 }
+
+variable "allow_destroy_plan" {
+  description = "Allow a destroy plan to be created"
+  type = bool
+  default = true
+}
