@@ -28,3 +28,9 @@ variable "tools_cluster_tfc_sa_token" {
   description = "Service account token for Kubernetes service account to connect to Tools cluster"
   type        = string
 }
+
+variable "test_variable" {
+  description = "Service account token for Kubernetes service account to connect to Tools cluster"
+  type        = string
+  default = "hello"
+}
