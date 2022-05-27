@@ -16,9 +16,9 @@ variable "helm_source_repositories" {
   description = "A list of repositories that the ArgoCD project is whitelisted for"
   type        = list(string)
   default = [
-    "git@github.com/kl-engineering/subscriptions-gitops-env.git",
-    "https://raw.githubusercontent.com/kl-engineering/microgateway-base-helm/main",
-    "https://raw.githubusercontent.com/kl-engineering/microgateway-istio-base-helm/main",
+    "git@github.com/kl-engineering/",
+    "https://raw.githubusercontent.com/kl-engineering/",
+    "https://helm.releases.hashicorp.com",
   ]
 }
 
