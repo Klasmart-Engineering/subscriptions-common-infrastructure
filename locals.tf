@@ -22,6 +22,6 @@ locals {
   env_repo                = "KL-Engineering/subscriptions-gitops-env"
   domain                  = "apifactory.kidsloop.live"
   env_repo_default_branch = "main"
-  working_directory       = "apifactory/uk/terraform"
+  working_directory       = "apifactory/uk/tools"
   workspace_description   = "Subscriptions workspace"
 }
