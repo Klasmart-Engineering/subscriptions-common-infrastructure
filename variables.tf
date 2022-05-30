@@ -16,8 +16,8 @@ variable "helm_source_repositories" {
   description = "A list of repositories that the ArgoCD project is whitelisted for"
   type        = list(string)
   default = [
-    "git@github.com/kl-engineering/",
-    "https://raw.githubusercontent.com/kl-engineering/",
+    "git@github.com/kl-engineering/*",
+    "https://raw.githubusercontent.com/kl-engineering/*",
     "https://helm.releases.hashicorp.com",
   ]
 }
