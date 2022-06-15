@@ -1,18 +1,19 @@
 module "workspaces" {
-  source = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git?ref=v0.3.0"
+  for_each = local.environments
+  source   = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git?ref=v0.3.0"
 
   # Module inputs here
-  region              = local.region
-  project_environment = local.project_environment
-  project_region      = local.project_region
-  service_owner       = local.service_owner
+  region              = each.value.region
+  project_environment = each.value.project_environment
+  project_region      = each.value.project_region
+  service_owner       = each.value.service_owner
 
-  workspace_name          = local.workspace_name
-  vcs_repo                = local.env_repo
-  domain                  = local.domain
-  vcs_repo_default_branch = local.env_repo_default_branch
-  working_directory       = local.working_directory
-  workspace_description   = local.workspace_description
+  workspace_name          = each.value.workspace_name
+  vcs_repo                = each.value.env_repo
+  domain                  = each.value.domain
+  vcs_repo_default_branch = each.value.env_repo_default_branch
+  working_directory       = each.value.working_directory
+  workspace_description   = each.value.workspace_description
 
   # RBAC settings
   tfe_team_access_permissions = {
@@ -23,11 +24,11 @@ module "workspaces" {
   notify_triggers = ["run:needs_attention", "run:applying", "run:completed", "run:errored"]
   tags = [
     "lay:product",
-    "reg:${lower(local.region)}",
-    "env:${lower(local.project_environment)}",
-    "loc:${lower(local.project_region)}",
-    "own:${lower(local.service_owner)}",
-    "dom:${replace(local.domain, ".", "-")}",
+    "reg:${lower(each.value.region)}",
+    "env:${lower(each.value.project_environment)}",
+    "loc:${lower(each.value.project_region)}",
+    "own:${lower(each.value.service_owner)}",
+    "dom:${replace(each.value.domain, ".", "-")}",
   ]
 
   providers = {
