@@ -2,6 +2,7 @@ locals {
   terraform_organization = "kidsloop-infrastructure"
 
   dep_tools = nonsensitive(data.tfe_outputs.cluster-infra-tools.values)
+  dep_tools_controllers_apifactory = nonsensitive(data.tfe_outputs.cluster-infra-tools.values)
 
   # Infra tools EKS variables (for ArgoCD / Teleport)
   tools_cluster_endpoint                      = local.dep_tools.cluster_endpoint
@@ -13,6 +14,7 @@ locals {
 
   product_namespace = "subscriptions"
 
+  # TODO(INFRAENG-243): Pull these values from other workspace outputs
   # Used by workspaces module
   environments = {
     apifactory = {
