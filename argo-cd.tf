@@ -46,3 +46,12 @@ resource "argocd_project" "project" {
     }
   }
 }
+
+resource "argocd_repository" "microgateway-base-helm" {
+  for_each = local.argocd_helm_repositories
+  repo     = each.value.repo
+  name     = each.key
+  type     = "helm"
+  username = "helm"
+  password = var.github_repo_access_token
+}

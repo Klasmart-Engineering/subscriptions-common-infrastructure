@@ -31,4 +31,16 @@ locals {
       workspace_description   = "Subscriptions workspace"
     }
   }
+
+  argocd_helm_repositories = {
+    microgateway-base-helm = {
+      repo = "https://raw.githubusercontent.com/kl-engineering/microgateway-base-helm/main"
+    }
+    microgateway-istio-base-helm = {
+      repo = "https://raw.githubusercontent.com/kl-engineering/microgateway-istio-base-helm/main"
+    }
+    terraform-base-helm = {
+      repo = "https://raw.githubusercontent.com/KL-Engineering/terraform-base-helm/main"
+    }
+  }
 }
