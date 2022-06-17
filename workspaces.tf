@@ -1,6 +1,6 @@
 module "workspaces" {
   for_each = local.environments
-  source   = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git?ref=v0.3.0"
+  source   = "git@github.com:KL-Infrastructure/terraform-tfe-ws-base.git?ref=v0.4.0"
 
   # Module inputs here
   region              = each.value.region
@@ -14,6 +14,8 @@ module "workspaces" {
   vcs_repo_default_branch = each.value.env_repo_default_branch
   working_directory       = each.value.working_directory
   workspace_description   = each.value.workspace_description
+
+  auto_apply = local.tf_workspace_auto_apply
 
   # RBAC settings
   tfe_team_access_permissions = {
