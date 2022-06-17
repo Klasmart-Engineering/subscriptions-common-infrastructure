@@ -19,6 +19,7 @@ locals {
   # Used by workspaces module
   environments = {
     apifactory = {
+      url                     = "https://EFC4B481A0B23459D26FE96D8985F7E3.gr7.eu-west-2.eks.amazonaws.com"
       region                  = "eu-west-2"
       project_environment     = "apifactory"
       project_region          = "uk"
@@ -43,4 +44,12 @@ locals {
       repo = "https://raw.githubusercontent.com/KL-Engineering/terraform-base-helm/main"
     }
   }
+
+  argocd_project_whitelisted_repos = [
+    "https://helm.releases.hashicorp.com",
+    "https://raw.githubusercontent.com/kl-engineering/microgateway-istio-base-helm/main",
+    "https://raw.githubusercontent.com/kl-engineering/microgateway-base-helm/main",
+    "https://raw.githubusercontent.com/kl-engineering/terraform-base-helm/main",
+    "git@github.com:KL-Engineering/subscriptions-gitops-env.git",
+  ]
 }

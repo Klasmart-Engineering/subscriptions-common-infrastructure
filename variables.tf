@@ -12,19 +12,6 @@ variable "kubernetes_server_urls" {
   }]
 }
 
-variable "helm_source_repositories" {
-  description = "A list of repositories that the ArgoCD project is whitelisted for"
-  type        = list(string)
-  default = [
-    "https://helm.releases.hashicorp.com",
-    "https://raw.githubusercontent.com/kl-engineering/microgateway-istio-base-helm/main",
-    "https://raw.githubusercontent.com/kl-engineering/microgateway-base-helm/main",
-    "https://raw.githubusercontent.com/kl-engineering/terraform-base-helm/main",
-    "git@github.com:KL-Engineering/subscriptions-gitops-env.git",
-  ]
-}
-
-
 # This is set in TFE workspace and is being consumed here
 variable "tools_cluster_tfc_sa_token" {
   description = "Service account token for Kubernetes service account to connect to Tools cluster"

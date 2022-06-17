@@ -6,11 +6,11 @@ resource "argocd_project" "project" {
 
   spec {
     description  = "Deployment project group for Subscription related products."
-    source_repos = var.helm_source_repositories
+    source_repos = local.argocd_project_whitelisted_repos
 
     # Allows access to the product namespace
     dynamic "destination" {
-      for_each = var.kubernetes_server_urls
+      for_each = local.environments
       content {
         namespace = local.product_namespace
         server    = destination.value["url"]
@@ -20,7 +20,7 @@ resource "argocd_project" "project" {
     # Allows access to the istio-system namespace
     # Required to allow tls certificates to be created under the istio-system namespace
     dynamic "destination" {
-      for_each = var.kubernetes_server_urls
+      for_each = local.environments
       content {
         namespace = local.istio_namespace
         server    = destination.value["url"]
